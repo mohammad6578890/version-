@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrap Metal ERP & POS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Scrap Metal ERP & POS</h1>
+      <p>Offline-friendly branch operations dashboard</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h2>Branch Summary</h2>
+        <label for="branchSelect">Branch</label>
+        <select id="branchSelect"></select>
+        <div class="stats">
+          <article>
+            <h3>Total Inventory (kg)</h3>
+            <p id="inventoryTotal">0</p>
+          </article>
+          <article>
+            <h3>Customer Debt ($)</h3>
+            <p id="debtTotal">0</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Record Scrap Purchase</h2>
+        <form id="purchaseForm">
+          <label>
+            Material
+            <input id="material" required placeholder="Copper" />
+          </label>
+          <label>
+            Weight (kg)
+            <input id="weight" type="number" min="0.1" step="0.1" required />
+          </label>
+          <label>
+            Unit Price ($)
+            <input id="unitPrice" type="number" min="0.01" step="0.01" required />
+          </label>
+          <button type="submit">Add Purchase</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Track Customer Debt</h2>
+        <form id="debtForm">
+          <label>
+            Customer Name
+            <input id="customer" required placeholder="Ahmed Metals" />
+          </label>
+          <label>
+            Amount ($)
+            <input id="amount" type="number" min="0.01" step="0.01" required />
+          </label>
+          <button type="submit">Add Debt</button>
+        </form>
+      </section>
+
+      <section class="panel full-width">
+        <h2>Today Activity</h2>
+        <ul id="activityList"></ul>
+      </section>
+    </main>
+
+    <template id="activityTemplate">
+      <li>
+        <span class="activity-time"></span>
+        <span class="activity-text"></span>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
